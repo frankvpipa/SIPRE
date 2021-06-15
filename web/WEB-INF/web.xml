@@ -6,7 +6,7 @@
     </servlet>
     <servlet>
         <servlet-name>TradiController</servlet-name>
-        <servlet-class>com.sipre.tradi.controller.TradiController</servlet-class>
+        <servlet-class>com.opre.controllers.TradiController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>VerifyServlet</servlet-name>

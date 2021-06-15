@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.sipre.tradi.controller;
+package com.opre.controllers;
 
 import DataService.Conexion;
-import com.sipre.tradi.TradiModel;
+import com.opre.models.TradiModel;
+import com.opre.models.impl.TadiImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -30,6 +31,7 @@ public class TradiController extends HttpServlet {
             String action=request.getParameter("act");
             String json="";
             con=Conexion.getConexionOracle();
+            TadiImpl tmodel=new TadiImpl(con);
             if(action.equals("listOfRemision")){
                 response.setContentType("application/json;charset=UTF-8");
                 json ="[";
@@ -63,13 +65,13 @@ public class TradiController extends HttpServlet {
                 
                 json+=" ]   ";            
             }else if(action.equals("ginsticion")){
-                json= TradiModel.getInstitucion(con);
+                json= tmodel.getInstitucion();
             }else if(action.equals("gprioridad")){
-                json= TradiModel.getPrioridad(con);
+                json= tmodel.getPrioridad();
             }else if(action.equals("gTipoDoc")){
-                json= TradiModel.getTipoDoc(con);
+                json= tmodel.getTipoDoc();
             }else if(action.equals("gClasificacion")){
-                json= TradiModel.getClasificacion(con);
+                json= tmodel.getClasificacion();
             }
             out.println(json);
             out.flush();

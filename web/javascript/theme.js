@@ -1,6 +1,6 @@
 function getTheme() {
     var theme = "ui-start";
-    var url = "/SIPRE-DEMO/css/styles/jqx." + theme + ".css";
+    var url = "/SIPRE/css/styles/jqx." + theme + ".css";
     var hasStyle = false;
     if (document.styleSheets) {
         $.each(document.styleSheets, function (index, value) {
